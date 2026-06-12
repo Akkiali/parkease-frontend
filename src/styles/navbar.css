@@ -1,0 +1,33 @@
+.navbar-custom {
+   background-color: #2563eb;
+   padding: 16px 0;
+}
+
+.navbar-brand {
+   font-size: 1.4rem;
+   font-weight: 700;
+   color: white !important;
+}
+
+.nav-link-custom {
+   color: white !important;
+   font-weight: 500;
+   margin-right: 20px;
+}
+
+.nav-link-custom:hover {
+   opacity: 0.85;
+}
+
+.login-btn {
+   color: white !important;
+   margin-right: 15px;
+}
+
+.register-btn {
+   background: white;
+   color: #2563eb !important;
+   border-radius: 8px;
+   padding: 8px 18px;
+   font-weight: 600;
+}

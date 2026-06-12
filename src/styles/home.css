@@ -1,0 +1,135 @@
+.hero-section {
+   background-color: #f8fafc;
+   padding: 140px 0;
+   text-align: center;
+}
+
+.hero-section h1 {
+   font-size: 4rem;
+   max-width: 1000px;
+   margin: 0 auto 25px;
+   line-height: 1.2;
+}
+
+.hero-section p {
+   color: #64748b;
+   font-size: 1.2rem;
+   margin-bottom: 40px;
+}
+
+.search-box {
+   max-width: 700px;
+   margin: auto;
+}
+
+.search-box .form-control {
+   height: 58px;
+}
+
+.search-box .btn {
+   padding: 0 30px;
+}
+
+.how-it-works {
+   padding: 80px 0;
+   background: white;
+}
+
+.how-it-works h2 {
+   text-align: center;
+   font-weight: 700;
+   margin-bottom: 50px;
+}
+
+.step-card {
+   background: white;
+   border-radius: 12px;
+   padding: 40px 25px;
+   text-align: center;
+   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+   height: 100%;
+   transition: 0.3s ease;
+   border: 1px solid #eef2f7;
+}
+
+.step-card:hover {
+   transform: translateY(-5px);
+}
+
+.step-number {
+   width: 70px;
+   height: 70px;
+   background: #dbeafe;
+   border-radius: 50%;
+   color: #2563eb;
+   font-size: 28px;
+   font-weight: 700;
+   margin: 0 auto 20px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.popular-locations {
+   padding: 80px 0;
+   background: #f8fafc;
+}
+
+.popular-locations h2 {
+   font-weight: 700;
+}
+
+.location-card {
+   background: white;
+   padding: 25px;
+   border-radius: 12px;
+   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+   height: 100%;
+   transition: 0.3s ease;
+   min-height: 260px;
+}
+
+.location-card:hover {
+   transform: translateY(-5px);
+}
+
+.slot-badge {
+   background: #2563eb;
+   color: white;
+   padding: 6px 12px;
+   border-radius: 20px;
+   font-size: 14px;
+}
+
+.view-all {
+   color: #2563eb;
+   cursor: pointer;
+}
+
+.why-us {
+   padding: 80px 0;
+   background: white;
+}
+
+.why-us h2 {
+   text-align: center;
+   font-weight: 700;
+}
+
+.feature-icon {
+   width: 80px;
+   height: 80px;
+   background: #dbeafe;
+   border-radius: 50%;
+   margin: auto;
+   font-size: 30px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-bottom: 20px;
+}
+
+.faq-section {
+   background: #f8fafc;
+   padding: 80px 0;
+}

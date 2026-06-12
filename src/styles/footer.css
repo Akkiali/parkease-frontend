@@ -1,0 +1,34 @@
+.footer {
+   background-color: #071330;
+   color: white;
+   padding: 50px 0 20px;
+}
+
+.footer h4 {
+   color: white;
+   font-weight: 700;
+   margin-bottom: 20px;
+}
+
+.footer p {
+   color: #d1d5db;
+}
+
+.footer-links {
+   list-style: none;
+   padding: 0;
+}
+
+.footer-links li {
+   color: #d1d5db;
+   margin-bottom: 10px;
+}
+
+.footer hr {
+   border-color: rgba(255, 255, 255, 0.15);
+}
+
+.footer-bottom {
+   text-align: center;
+   color: #d1d5db;
+}

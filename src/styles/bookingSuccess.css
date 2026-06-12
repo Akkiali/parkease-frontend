@@ -1,0 +1,68 @@
+.success-page {
+   background: #f8fafc;
+   min-height: 100vh;
+   padding: 80px 0;
+}
+
+.success-card {
+   max-width: 650px;
+   margin: auto;
+   background: white;
+   padding: 40px;
+   border-radius: 16px;
+   text-align: center;
+   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+   transition: all 0.3s ease;
+}
+
+.success-card:hover {
+   transform: translateY(-3px);
+}
+
+.success-icon {
+   width: 90px;
+   height: 90px;
+   margin: auto;
+   margin-bottom: 25px;
+   border-radius: 50%;
+   background: #dcfce7;
+   color: #16a34a;
+   font-size: 40px;
+   font-weight: bold;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.success-card h1 {
+   font-weight: 700;
+   margin-bottom: 15px;
+}
+
+.success-card p {
+   color: #64748b;
+}
+
+.booking-summary {
+   margin-top: 30px;
+   text-align: left;
+}
+
+.summary-row {
+   display: flex;
+   justify-content: space-between;
+   padding: 12px 0;
+   border-bottom: 1px solid #e2e8f0;
+}
+
+.summary-row strong {
+   color: #0f172a;
+}
+
+.button-group {
+   margin-top: 30px;
+   display: flex;
+   gap: 15px;
+   justify-content: center;
+   flex-wrap: wrap;
+}
