@@ -1,8 +1,21 @@
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import "../styles/bookingSuccess.css";
 
 function BookingSuccess() {
+
+   const location = useLocation();
+   const navigate = useNavigate();
+
+   const booking = location.state;
+
+   useEffect(() => {
+      if (!booking) {
+         navigate("/book-parking", { replace: true });
+      }
+   }, [booking, navigate]);
+
    return (
       <>
          <div className="success-page">
@@ -25,27 +38,52 @@ function BookingSuccess() {
 
                      <div className="summary-row">
                         <span>Booking ID</span>
-                        <strong>#BK1001</strong>
+                        <strong>{booking?.bookingId || "N/A"}</strong>
                      </div>
 
                      <div className="summary-row">
                         <span>Station</span>
-                        <strong>Dadar</strong>
+                        <strong>{booking?.stationName || "N/A"}</strong>
                      </div>
 
                      <div className="summary-row">
                         <span>Slot Number</span>
-                        <strong>A101</strong>
+                        <strong>{booking?.slotNumber || "N/A"}</strong>
                      </div>
 
                      <div className="summary-row">
                         <span>Vehicle</span>
-                        <strong>MH01AB1234</strong>
+                        <strong>{booking?.vehicleNumber || "N/A"}</strong>
                      </div>
 
                      <div className="summary-row">
                         <span>Amount</span>
-                        <strong>₹120</strong>
+                        <strong>₹{booking?.amount ?? "N/A"}</strong>
+                     </div>
+
+                     <div className="summary-row">
+                        <span>Vehicle Type</span>
+                        <strong>{booking?.vehicleType || "N/A"}</strong>
+                     </div>
+
+                     <div className="summary-row">
+                        <span>Status</span>
+                        <strong>{booking?.bookingStatus || "N/A"}</strong>
+                     </div>
+
+                     <div className="summary-row">
+                        <span>Booked On</span>
+                        <strong>
+                           {booking?.createdAt || booking?.bookingDate
+                              ? new Date(booking?.createdAt || booking?.bookingDate).toLocaleString("en-IN", {
+                                 year: "numeric",
+                                 month: "long",
+                                 day: "numeric",
+                                 hour: "2-digit",
+                                 minute: "2-digit",
+                              })
+                              : "N/A"}
+                        </strong>
                      </div>
 
                   </div>

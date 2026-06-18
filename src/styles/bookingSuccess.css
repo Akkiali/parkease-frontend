@@ -1,68 +1,134 @@
 .success-page {
-   background: #f8fafc;
    min-height: 100vh;
    padding: 80px 0;
+   background: linear-gradient(180deg,
+         #eef6ff 0%,
+         #f8fafc 45%,
+         #ffffff 100%);
 }
 
 .success-card {
-   max-width: 650px;
+   max-width: 760px;
    margin: auto;
-   background: white;
-   padding: 40px;
-   border-radius: 16px;
-   text-align: center;
-   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-   transition: all 0.3s ease;
+   background: rgba(255, 255, 255, .96);
+   border-radius: 28px;
+   padding: 50px;
+   border: 1px solid rgba(226, 232, 240, .8);
+   box-shadow: 0 24px 80px rgba(15, 23, 42, .08);
+   transition: all .3s ease;
 }
 
 .success-card:hover {
-   transform: translateY(-3px);
+   transform: translateY(-4px);
 }
 
 .success-icon {
-   width: 90px;
-   height: 90px;
-   margin: auto;
-   margin-bottom: 25px;
+   width: 85px;
+   height: 85px;
+   margin: 0 auto 30px;
    border-radius: 50%;
-   background: #dcfce7;
+   background: linear-gradient(135deg,
+         #dcfce7,
+         #bbf7d0);
    color: #16a34a;
-   font-size: 40px;
-   font-weight: bold;
+   font-size: 56px;
+   font-weight: 700;
    display: flex;
-   justify-content: center;
    align-items: center;
+   justify-content: center;
+   box-shadow: 0 15px 40px rgba(22, 163, 74, .18);
 }
 
 .success-card h1 {
-   font-weight: 700;
-   margin-bottom: 15px;
+   text-align: center;
+   font-size: clamp(2.2rem, 4vw, 3rem);
+   font-weight: 800;
+   color: #0f172a;
+   margin-bottom: 12px;
 }
 
 .success-card p {
+   text-align: center;
    color: #64748b;
+   font-size: 1rem;
+   margin-bottom: 35px;
 }
 
 .booking-summary {
-   margin-top: 30px;
-   text-align: left;
+   background: #f8fbff;
+   border: 1px solid #e2e8f0;
+   border-radius: 20px;
+   padding: 10px 24px;
+   margin-top: 25px;
 }
 
 .summary-row {
    display: flex;
    justify-content: space-between;
-   padding: 12px 0;
+   align-items: center;
+   padding: 14px 0;
    border-bottom: 1px solid #e2e8f0;
+}
+
+.summary-row:last-child {
+   border-bottom: none;
+}
+
+.summary-row span {
+   color: #64748b;
+   font-weight: 500;
 }
 
 .summary-row strong {
    color: #0f172a;
+   font-weight: 700;
 }
 
 .button-group {
-   margin-top: 30px;
+   margin-top: 35px;
    display: flex;
-   gap: 15px;
+   gap: 16px;
    justify-content: center;
    flex-wrap: wrap;
+}
+
+.button-group .btn {
+   min-width: 220px;
+   min-height: 56px;
+   border-radius: 16px;
+   font-weight: 600;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.button-group .btn-primary {
+   background: linear-gradient(135deg,
+         #2563eb,
+         #0ea5e9);
+   border: none;
+}
+
+.button-group .btn-outline-primary {
+   border-width: 2px;
+}
+
+@media (max-width: 768px) {
+   .success-page {
+      padding: 60px 0;
+   }
+
+   .success-card {
+      padding: 30px 24px;
+   }
+
+   .summary-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+   }
+
+   .button-group .btn {
+      width: 100%;
+   }
 }

@@ -1,17 +1,46 @@
 .footer {
-   background-color: #071330;
+   background: #071330;
    color: white;
-   padding: 50px 0 20px;
+   padding: 60px 0 25px;
+}
+
+.footer-brand {
+   display: flex;
+   align-items: center;
+   gap: 14px;
+   margin-bottom: 20px;
+}
+
+.footer-logo {
+   width: 42px;
+   height: 42px;
+   border-radius: 12px;
+   background: linear-gradient(135deg,
+         #4f46e5,
+         #2563eb);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 1.4rem;
+   font-weight: 700;
 }
 
 .footer h4 {
    color: white;
    font-weight: 700;
-   margin-bottom: 20px;
+   margin-bottom: 0;
 }
 
+.footer-brand span {
+   font-size: 0.75rem;
+   letter-spacing: 3px;
+   color: #9ca3af;
+}
+
+.footer-description,
 .footer p {
    color: #d1d5db;
+   line-height: 1.8;
 }
 
 .footer-links {
@@ -20,15 +49,27 @@
 }
 
 .footer-links li {
+   margin-bottom: 12px;
+}
+
+.footer-links a {
+   text-decoration: none;
    color: #d1d5db;
-   margin-bottom: 10px;
+   transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+   color: #60a5fa;
+   padding-left: 4px;
 }
 
 .footer hr {
-   border-color: rgba(255, 255, 255, 0.15);
+   border-color: rgba(255, 255, 255, 0.1);
+   margin: 35px 0 20px;
 }
 
 .footer-bottom {
    text-align: center;
-   color: #d1d5db;
+   color: #9ca3af;
+   font-size: 0.95rem;
 }

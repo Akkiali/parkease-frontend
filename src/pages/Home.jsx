@@ -1,38 +1,123 @@
+
 import "../styles/home.css";
 import Footer from "../components/Footer";
 import locations from "../data/locations";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 function Home() {
+
+   const [activeFaq, setActiveFaq] = useState(0);
+   const navigate = useNavigate();
+   const [searchTerm, setSearchTerm] = useState("");
+
+   const handleBookNow = () => {
+      const token = localStorage.getItem("token");
+
+      if (token) {
+         navigate("/locations");
+      } else {
+         navigate("/login");
+      }
+   };
+
+   const faqs = [
+      {
+         question: "Can I cancel my booking?",
+         answer:
+            "Yes, bookings can be cancelled from the My Bookings page."
+      },
+      {
+         question: "Is parking secure?",
+         answer:
+            "Yes, all parking locations are monitored and maintained for a safe experience."
+      },
+      {
+         question: "Can I book parking in advance?",
+         answer:
+            "Yes, you can reserve parking slots in advance based on availability."
+      }
+   ];
+
    return (
       <>
-         <section className="hero-section">
+         <section className="home-hero">
 
-            <div className="container">
+            <div className="home-hero-container">
 
-               <h1>
-                  Reserve Your Parking Slot Before You Arrive
+               <h1 className="home-hero-title">
+                  Find & Reserve Parking Spaces Instantly
                </h1>
 
-               <p>
-                  Secure your parking space in advance and save
-                  time during your commute.
+               <p className="home-hero-description">
+                  Real-time parking availability, instant booking,
+                  secure reservations, and hassle-free parking
+                  management across Mumbai railway stations.
                </p>
 
-               <div className="search-box">
+               <div className="home-hero-trust">
 
-                  <div className="input-group">
+                  <span>✓ Real-Time Availability</span>
 
-                     <input
-                        type="text"
-                        className="form-control form-control-lg"
-                        placeholder="Search for a station..."
-                     />
+                  <span>✓ Instant Booking</span>
 
-                     <button className="btn btn-primary">
-                        Search
-                     </button>
+                  <span>✓ Secure Parking</span>
 
-                  </div>
+                  <span>✓ 24/7 Access</span>
+
+               </div>
+
+               <div className="home-hero-search">
+
+                  <input
+                     type="text"
+                     placeholder="Search for a station..."
+                     value={searchTerm}
+                     onChange={(e) => setSearchTerm(e.target.value)}
+                     onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                           // this when pressing enter key parameter
+                           navigate(
+                              `/locations?search=${encodeURIComponent(
+                                 searchTerm
+                              )}`
+                           );
+                        }
+                     }}
+                  />
+
+                  <button
+                     onClick={() => {
+                        if (!searchTerm.trim()) {
+                           navigate("/locations");
+                           return;
+                        }
+                        navigate(
+                           `/locations?search=${encodeURIComponent(
+                              searchTerm
+                           )}`
+                        );
+                     }}
+                  >
+                     Search
+                  </button>
+
+               </div>
+
+               <div className="home-hero-cta-group">
+
+                  <button className="home-hero-book-btn"
+                     onClick={handleBookNow}>
+                     Book Parking
+                  </button>
+
+                  <button className="home-hero-location-btn"
+                     className="home-hero-location-btn"
+                     onClick={() => navigate("/locations")}
+                  >
+                     View Locations
+                  </button>
 
                </div>
 
@@ -40,133 +125,165 @@ function Home() {
 
          </section>
 
-         <section className="how-it-works">
+         <section className="home-process-section">
 
-            <div className="container">
+            <div className="home-process-container">
 
-               <h2>How It Works</h2>
+               <div className="home-process-header">
 
-               <div className="row">
-
-                  <div className="col-md-4 mb-4">
-
-                     <div className="step-card">
-
-                        <div className="step-number">
-                           1
-                        </div>
-
-                        <h4>Search</h4>
-
-                        <p>
-                           Find your railway station and check
-                           available parking slots.
-                        </p>
-
-                     </div>
-
-                  </div>
-
-                  <div className="col-md-4 mb-4">
-
-                     <div className="step-card">
-
-                        <div className="step-number">
-                           2
-                        </div>
-
-                        <h4>Book</h4>
-
-                        <p>
-                           Choose your preferred parking slot and
-                           confirm booking.
-                        </p>
-
-                     </div>
-
-                  </div>
-
-                  <div className="col-md-4 mb-4">
-
-                     <div className="step-card">
-
-                        <div className="step-number">
-                           3
-                        </div>
-
-                        <h4>Park</h4>
-
-                        <p>
-                           Arrive at the station and park without
-                           any hassle.
-                        </p>
-
-                     </div>
-
-                  </div>
-
-               </div>
-
-            </div>
-
-         </section>
-
-         <section className="popular-locations">
-
-            <div className="container">
-
-               <div className="d-flex justify-content-between align-items-center mb-5">
-
-                  <h2>Popular Locations</h2>
-
-                  <span className="view-all">
-                     View All Stations →
+                  <span className="home-process-badge">
+                     #SmartParkingMadeEasy
                   </span>
 
+                  <h2 className="home-process-heading">
+                     Book Your Parking in 3 Simple Steps
+                  </h2>
+
+                  <p className="home-process-subheading">
+                     Reserve your parking space within seconds and avoid
+                     last-minute parking hassles.
+                  </p>
+
                </div>
 
-               <div className="row">
+               <div className="home-process-grid">
+
+                  <div className="home-process-card">
+
+                     <div className="home-process-icon">
+                        01
+                     </div>
+
+                     <h3 className="home-process-title">
+                        Search Location
+                     </h3>
+
+                     <p className="home-process-description">
+                        Find nearby railway station parking locations and
+                        check real-time slot availability.
+                     </p>
+
+                  </div>
+
+                  <div className="home-process-card">
+
+                     <div className="home-process-icon">
+                        02
+                     </div>
+
+                     <h3 className="home-process-title">
+                        Reserve Slot
+                     </h3>
+
+                     <p className="home-process-description">
+                        Select your preferred parking slot and confirm
+                        your reservation instantly.
+                     </p>
+
+                  </div>
+
+                  <div className="home-process-card">
+
+                     <div className="home-process-icon">
+                        03
+                     </div>
+
+                     <h3 className="home-process-title">
+                        Park Stress-Free
+                     </h3>
+
+                     <p className="home-process-description">
+                        Arrive at the location and park without wasting
+                        time searching for a parking space.
+                     </p>
+
+                  </div>
+
+               </div>
+
+            </div>
+
+         </section>
+
+         {/* popular locations section */}
+
+         <section className="home-locations-section">
+
+            <div className="home-locations-container">
+
+               <div className="home-locations-header">
+
+                  <div>
+
+                     <span className="home-locations-badge">
+                        POPULAR DESTINATIONS
+                     </span>
+
+                     <h2 className="home-locations-heading">
+                        Find Parking Near Major Railway Stations
+                     </h2>
+
+                  </div>
+
+                  <button className="home-locations-view-btn">
+                     View All Locations
+                  </button>
+
+               </div>
+
+               <div className="home-locations-grid">
 
                   {locations.map((location) => (
 
                      <div
-                        className="col-md-4 mb-4"
+                        className="home-location-card"
                         key={location.id}
                      >
 
-                        <div className="location-card">
+                        <div className="home-location-top">
 
-                           <div className="d-flex justify-content-between">
+                           <h3 className="home-location-name">
+                              {location.stationName}
+                           </h3>
 
-                              <h4>{location.stationName}</h4>
+                           <span className="home-location-badge">
+                              {location.availableSlots} Available
+                           </span>
 
-                              <span className="slot-badge">
-                                 {location.availableSlots} slots left
-                              </span>
+                        </div>
 
-                           </div>
+                        <p className="home-location-address">
+                           {location.address}
+                        </p>
 
-                           <p>{location.address}</p>
+                        <div className="home-location-pricing">
 
-                           <p>
-                              Four Wheeler:
+                           <div className="home-location-price">
+
+                              <span>Car</span>
+
                               <strong>
                                  ₹{location.fourWheelerPrice}/hr
                               </strong>
-                           </p>
 
-                           <p>
-                              Two Wheeler:
+                           </div>
+
+                           <div className="home-location-price">
+
+                              <span>Bike</span>
+
                               <strong>
                                  ₹{location.twoWheelerPrice}/hr
                               </strong>
-                           </p>
 
-                           <button className="btn btn-primary w-100">
-                              Book Now
-                           </button>
+                           </div>
 
                         </div>
+
+                        <button className="home-location-book-btn"
+                           onClick={handleBookNow}>
+                           Book Parking
+                        </button>
 
                      </div>
 
@@ -178,54 +295,92 @@ function Home() {
 
          </section>
 
-         <section className="why-us">
 
-            <div className="container">
 
-               <h2>Why Choose Us</h2>
+         <section className="home-features-section">
 
-               <div className="row mt-5">
+            <div className="home-features-container">
 
-                  <div className="col-md-3 text-center mb-4">
-                     <div className="feature-icon">✓</div>
+               <div className="home-features-header">
 
-                     <h4>Easy Booking</h4>
+                  <span className="home-features-badge">
+                     WHY PARKEASE
+                  </span>
 
-                     <p>
-                        Simple and intuitive interface for
-                        quick reservations.
+                  <h2 className="home-features-heading">
+                     Everything You Need For Stress-Free Parking
+                  </h2>
+
+               </div>
+
+               <div className="home-features-grid">
+
+                  <div className="home-feature-card">
+
+                     <div className="home-feature-icon">
+                        ✓
+                     </div>
+
+                     <h3 className="home-feature-title">
+                        Easy Booking
+                     </h3>
+
+                     <p className="home-feature-description">
+                        Reserve your parking space in seconds with a
+                        simple and intuitive booking experience.
                      </p>
+
                   </div>
 
-                  <div className="col-md-3 text-center mb-4">
-                     <div className="feature-icon">🛡</div>
+                  <div className="home-feature-card">
 
-                     <h4>Secure Parking</h4>
+                     <div className="home-feature-icon">
+                        🛡
+                     </div>
 
-                     <p>
-                        Safe and reliable parking locations.
+                     <h3 className="home-feature-title">
+                        Secure Parking
+                     </h3>
+
+                     <p className="home-feature-description">
+                        Verified parking locations with safe and
+                        reliable reservations.
                      </p>
+
                   </div>
 
-                  <div className="col-md-3 text-center mb-4">
-                     <div className="feature-icon">🕒</div>
+                  <div className="home-feature-card">
 
-                     <h4>24/7 Support</h4>
+                     <div className="home-feature-icon">
+                        ⏱
+                     </div>
 
-                     <p>
-                        Customer assistance whenever needed.
+                     <h3 className="home-feature-title">
+                        Real-Time Availability
+                     </h3>
+
+                     <p className="home-feature-description">
+                        Check live parking slot availability before
+                        reaching your destination.
                      </p>
+
                   </div>
 
-                  <div className="col-md-3 text-center mb-4">
-                     <div className="feature-icon">📍</div>
+                  <div className="home-feature-card">
 
-                     <h4>Instant Confirmation</h4>
+                     <div className="home-feature-icon">
+                        📍
+                     </div>
 
-                     <p>
-                        Booking confirmation immediately after
-                        reservation.
+                     <h3 className="home-feature-title">
+                        24/7 Accessibility
+                     </h3>
+
+                     <p className="home-feature-description">
+                        Book and manage your reservations anytime,
+                        anywhere.
                      </p>
+
                   </div>
 
                </div>
@@ -234,71 +389,59 @@ function Home() {
 
          </section>
 
-         <section className="faq-section">
+         <section className="home-faq-section">
 
-            <div className="container">
+            <div className="home-faq-container">
 
-               <h2 className="text-center mb-5">
-                  Frequently Asked Questions
-               </h2>
+               <div className="home-faq-header">
 
-               <div className="accordion" id="faqAccordion">
+                  <span className="home-faq-badge">
+                     FAQs
+                  </span>
 
-                  <div className="accordion-item">
+                  <h2 className="home-faq-heading">
+                     Frequently Asked Questions
+                  </h2>
 
-                     <h2 className="accordion-header">
+               </div>
 
-                        <button
-                           className="accordion-button"
-                           data-bs-toggle="collapse"
-                           data-bs-target="#faq1"
-                        >
-                           Can I cancel my booking?
-                        </button>
+               <div className="home-faq-list">
 
-                     </h2>
+                  {faqs.map((faq, index) => (
 
                      <div
-                        id="faq1"
-                        className="accordion-collapse collapse show"
+                        key={index}
+                        className="home-faq-item"
                      >
 
-                        <div className="accordion-body">
-                           Yes, bookings can be cancelled from
-                           My Bookings page.
-                        </div>
+                        <button
+                           className="home-faq-question"
+                           onClick={() =>
+                              setActiveFaq(
+                                 activeFaq === index ? -1 : index
+                              )
+                           }
+                        >
+
+                           <span>{faq.question}</span>
+
+                           <span>
+                              {activeFaq === index ? "−" : "+"}
+                           </span>
+
+                        </button>
+
+                        {activeFaq === index && (
+
+                           <div className="home-faq-answer">
+                              {faq.answer}
+                           </div>
+
+                        )}
 
                      </div>
 
-                  </div>
-
-                  <div className="accordion-item">
-
-                     <h2 className="accordion-header">
-
-                        <button
-                           className="accordion-button collapsed"
-                           data-bs-toggle="collapse"
-                           data-bs-target="#faq2"
-                        >
-                           Is parking secure?
-                        </button>
-
-                     </h2>
-
-                     <div
-                        id="faq2"
-                        className="accordion-collapse collapse"
-                     >
-
-                        <div className="accordion-body">
-                           Yes, all locations are monitored and
-                           maintained.
-                        </div>
-
-                     </div>
-
-                  </div>
+                  ))}
 
                </div>
 

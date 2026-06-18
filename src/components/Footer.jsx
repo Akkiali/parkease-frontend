@@ -1,21 +1,32 @@
+import { Link } from "react-router-dom";
 import "../styles/footer.css";
 
 function Footer() {
    return (
       <footer className="footer">
-
          <div className="container">
 
             <div className="row">
 
                <div className="col-md-4 mb-4">
 
-                  <h4>ParkEase Mumbai</h4>
+                  <div className="footer-brand">
 
-                  <p>
-                     Official parking booking portal for Mumbai and
-                     Navi Mumbai railway stations. Reliable, secure,
-                     and hassle-free parking.
+                     <div className="footer-logo">
+                        P
+                     </div>
+
+                     <div>
+                        <h4>ParkEase</h4>
+                        <span>MUMBAI</span>
+                     </div>
+
+                  </div>
+
+                  <p className="footer-description">
+                     Smart parking reservations across Mumbai and
+                     Navi Mumbai railway stations. Fast, secure,
+                     and hassle-free parking management.
                   </p>
 
                </div>
@@ -25,9 +36,24 @@ function Footer() {
                   <h4>Quick Links</h4>
 
                   <ul className="footer-links">
-                     <li>Home</li>
-                     <li>Locations</li>
-                     <li>My Bookings</li>
+
+                     <li>
+                        <Link to="/home">Home</Link>
+                     </li>
+
+                     <li>
+                        <Link to="/explore">Explore</Link>
+                     </li>
+
+                     <li>
+                        <Link to="/locations">Locations</Link>
+                     </li>
+
+                     <li>
+                        <Link to="/my-bookings">
+                           My Bookings
+                        </Link>
+                     </li>
 
                   </ul>
 
@@ -37,16 +63,14 @@ function Footer() {
 
                   <h4>Contact</h4>
 
+                  <p>📍 Mumbai, Maharashtra</p>
+
                   <p>
-                     Email: support@parkeasemumbai.gov.in
+                     ✉ support@parkease.com
                   </p>
 
                   <p>
-                     Helpline: 1800-111-2222 (Toll Free)
-                  </p>
-
-                  <p>
-                     Address: BMC Headquarters, Mumbai
+                     🕒 Available 24/7
                   </p>
 
                </div>
@@ -56,11 +80,10 @@ function Footer() {
             <hr />
 
             <div className="footer-bottom">
-               © 2026 ParkEase Mumbai. All rights reserved.
+               © 2026 ParkEase • Smart Parking Management System
             </div>
 
          </div>
-
       </footer>
    );
 }

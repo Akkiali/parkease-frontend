@@ -1,0 +1,173 @@
+﻿.admin-layout {
+   display: flex;
+   min-height: 100vh;
+   background-color: #f4f6f9;
+}
+
+.admin-sidebar {
+   width: 260px;
+   background: #0f172a;
+   color: white;
+   padding: 25px 15px;
+   position: fixed;
+   height: 100vh;
+   overflow-y: auto;
+}
+
+.admin-logo {
+   text-align: center;
+   margin-bottom: 30px;
+}
+
+.admin-logo h2 {
+   color: #38bdf8;
+   font-weight: 700;
+   margin-bottom: 5px;
+}
+
+.admin-logo p {
+   color: #cbd5e1;
+   font-size: 14px;
+}
+
+.admin-menu {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+}
+
+.admin-menu a {
+   text-decoration: none;
+   color: white;
+   padding: 12px 15px;
+   border-radius: 8px;
+   transition: 0.3s;
+   font-weight: 500;
+}
+
+.admin-menu a:hover {
+   background-color: #1e293b;
+   color: #38bdf8;
+}
+
+.admin-content {
+   flex: 1;
+   margin-left: 260px;
+   padding: 30px;
+}
+
+.page-title {
+   font-size: 2rem;
+   font-weight: 700;
+   margin-bottom: 25px;
+}
+
+.stat-card {
+   background: white;
+   border-radius: 15px;
+   padding: 25px;
+   text-align: center;
+   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+   transition: 0.3s;
+   height: 100%;
+}
+
+.stat-card:hover {
+   transform: translateY(-5px);
+}
+
+.stat-card p {
+   color: #64748b;
+   font-size: 14px;
+   margin-bottom: 10px;
+   font-weight: 600;
+}
+
+.stat-card h3 {
+   font-size: 32px;
+   font-weight: 700;
+   color: #0f172a;
+}
+
+.admin-table {
+   background: white;
+   border-radius: 15px;
+   padding: 25px;
+   margin-top: 30px;
+   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.admin-table h4 {
+   margin-bottom: 20px;
+   font-weight: 700;
+}
+
+.table {
+   margin-bottom: 0;
+}
+
+.table th {
+   background: #f8fafc;
+   font-weight: 600;
+}
+
+.action-btns {
+   display: flex;
+   gap: 8px;
+}
+
+.dashboard-grid {
+   row-gap: 20px;
+}
+
+.badge-booked {
+   background: #198754;
+   color: white;
+   padding: 6px 10px;
+   border-radius: 20px;
+}
+
+.badge-cancelled {
+   background: #dc3545;
+   color: white;
+   padding: 6px 10px;
+   border-radius: 20px;
+}
+
+.badge-available {
+   background: #0d6efd;
+   color: white;
+   padding: 6px 10px;
+   border-radius: 20px;
+}
+
+.badge-occupied {
+   background: #ffc107;
+   color: black;
+   padding: 6px 10px;
+   border-radius: 20px;
+}
+
+.form-card {
+   background: white;
+   padding: 25px;
+   border-radius: 15px;
+   margin-bottom: 25px;
+   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 992px) {
+   .admin-sidebar {
+      width: 100%;
+      position: relative;
+      height: auto;
+   }
+
+   .admin-content {
+      margin-left: 0;
+   }
+
+   .admin-layout {
+      flex-direction: column;
+   }
+}

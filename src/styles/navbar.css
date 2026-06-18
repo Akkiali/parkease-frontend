@@ -1,33 +1,256 @@
-.navbar-custom {
-   background-color: #2563eb;
-   padding: 16px 0;
+.pe-navbar {
+   position: sticky;
+   top: 0;
+   z-index: 1000;
+   background: rgba(15, 23, 42, 0.96);
+   backdrop-filter: blur(14px);
+   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+   box-shadow: 0 16px 45px rgba(0, 0, 0, 0.15);
 }
 
-.navbar-brand {
-   font-size: 1.4rem;
-   font-weight: 700;
-   color: white !important;
+.pe-navbar-container {
+   max-width: 1280px;
+   margin: 0 auto;
+   padding: 22px 36px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   gap: 24px;
 }
 
-.nav-link-custom {
-   color: white !important;
-   font-weight: 500;
-   margin-right: 20px;
+/* =========================
+   Brand
+========================= */
+
+.pe-navbar-brand {
+   display: flex;
+   flex-direction: column;
+   text-decoration: none;
 }
 
-.nav-link-custom:hover {
+.pe-brand-main {
+   color: #ffffff;
+   font-size: 2rem;
+   font-weight: 750;
+   letter-spacing: 0.5px;
+}
+
+.pe-brand-sub {
+   color: rgba(255, 255, 255, 0.75);
+   font-size: 0.8rem;
+   font-weight: 600;
+   letter-spacing: 0.16em;
+   text-transform: uppercase;
+}
+
+.pe-navbar-brand:hover {
+   opacity: 0.95;
+}
+
+/* =========================
+   Navigation
+========================= */
+
+.pe-navbar-actions {
+   display: flex;
+   align-items: center;
+   gap: 20px;
+   flex-wrap: wrap;
+}
+
+.pe-nav-link {
+   position: relative;
+   text-decoration: none;
+   color: rgba(255, 255, 255, 0.85);
+   font-size: 1.05rem;
+   font-weight: 600;
+   transition: all 0.3s ease;
+}
+
+.pe-nav-link:hover {
+   color: #ffffff;
+}
+
+.pe-nav-link::after {
+   content: "";
+   position: absolute;
+   left: 0;
+   bottom: -6px;
+   width: 0;
+   height: 2px;
+   background: #38bdf8;
+   transition: width 0.3s ease;
+}
+
+.pe-nav-link:hover::after {
+   width: 100%;
+}
+
+.pe-nav-link.active {
+   color: #ffffff;
+}
+
+.pe-nav-link.active::after {
+   width: 100%;
+}
+
+/* =========================
+   Buttons
+========================= */
+
+.pe-admin-link {
+   padding: 8px 14px;
+   border-radius: 999px;
+
+   /* background: rgba(99, 102, 241, 0.12); */
+
+   /* border: 1px solid rgba(99, 102, 241, 0.25); */
+
+   /* color: #c7d2fe; */
+}
+
+.pe-admin-link:hover {
+   background: rgba(99, 102, 241, 0.22);
+   color: #85bdf1;
+}
+
+.pe-login-btn {
+   text-decoration: none;
+   color: #ffffff;
+   font-weight: 600;
+   transition: 0.3s;
+}
+
+.pe-login-btn:hover {
    opacity: 0.85;
 }
 
-.login-btn {
-   color: white !important;
-   margin-right: 15px;
+.pe-register-btn {
+   text-decoration: none;
+   padding: 11px 22px;
+   border-radius: 12px;
+
+   background: linear-gradient(135deg,
+         #2563eb,
+         #38bdf8);
+
+   color: white;
+   font-weight: 700;
+   transition: all 0.3s ease;
+
+   box-shadow:
+      0 10px 25px rgba(37, 99, 235, 0.25);
 }
 
-.register-btn {
-   background: white;
-   color: #2563eb !important;
-   border-radius: 8px;
-   padding: 8px 18px;
-   font-weight: 600;
+.pe-register-btn:hover {
+   transform: translateY(-2px);
+}
+
+.pe-logout-btn {
+   border: none;
+   cursor: pointer;
+   padding: 11px 20px;
+   border-radius: 12px;
+   background: rgba(255, 255, 255, .08);
+   border: 1px solid rgba(255, 255, 255, .12);
+   color: white;
+   font-weight: 700;
+   transition: all 0.3s ease;
+}
+
+.pe-logout-btn:hover {
+   background: #ef4444;
+   border-color: #ef4444;
+   transform: translateY(-2px);
+}
+
+/* =========================
+   User Badge
+========================= */
+
+.pe-user-badge {
+   padding: 12px 18px;
+   border-radius: 999px;
+   background: rgba(79, 70, 229, .18);
+   border: 1px solid rgba(255, 255, 255, 0.1);
+   color: #f8fafc;
+   font-size: 0.95rem;
+   font-weight: 700;
+}
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 900px) {
+
+   .pe-navbar-container {
+      flex-direction: column;
+      align-items: flex-start;
+   }
+
+   .pe-navbar-actions {
+      width: 100%;
+      gap: 14px;
+   }
+}
+
+@media (max-width: 576px) {
+
+   .pe-navbar-container {
+      padding: 16px 20px;
+   }
+
+   .pe-navbar-actions {
+      flex-direction: column;
+      align-items: flex-start;
+   }
+
+   .pe-register-btn,
+   .pe-logout-btn {
+      width: 100%;
+      text-align: center;
+   }
+}
+
+.pe-nav-search {
+   display: flex;
+   align-items: center;
+   gap: 6px;
+   padding: 7px 12px;
+   border-radius: 999px;
+   background: rgba(255, 255, 255, 0.08);
+   border: 1px solid rgba(255, 255, 255, 0.1);
+   transition: all 0.3s ease;
+}
+
+.pe-nav-search:hover,
+.pe-nav-search:focus-within {
+   background: rgba(255, 255, 255, 0.12);
+   border-color: rgba(56, 189, 248, 0.3);
+}
+
+.pe-nav-search-icon {
+   font-size: 0.85rem;
+}
+
+.pe-nav-search input {
+   width: 150px;
+   border: none;
+   background: transparent;
+   color: #ffffff;
+   font-size: 0.85rem;
+   outline: none;
+}
+
+.pe-nav-search input::placeholder {
+   color: rgba(255, 255, 255, 0.65);
+}
+
+.nav-divider {
+   width: 7px;
+   height: 40px;
+   border-radius: 40px;
+   background: rgba(255, 255, 255, 0.2);
+   margin: 0 1px;
 }
