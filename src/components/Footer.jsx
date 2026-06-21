@@ -16,9 +16,9 @@ function Footer() {
                         P
                      </div>
 
-                     <div>
+                     <div className="footer-brand-copy">
                         <h4>ParkEase</h4>
-                        <span>MUMBAI</span>
+                        <span>Mumbai</span>
                      </div>
 
                   </div>

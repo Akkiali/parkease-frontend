@@ -61,7 +61,7 @@ function Login() {
                   to="/"
                   className="login-brand"
                >
-                  
+
                   <span className="login-brand-mark" aria-hidden="true">P</span>
                   <span>ParkEase</span>
                </Link>
@@ -145,59 +145,7 @@ function Login() {
 
                   </form>
 
-                  <div className="login-divider">
-                     <span></span>
-                     <p>Or Login With</p>
-                     <span></span>
-                  </div>
 
-                  <div className="login-social-buttons">
-                     <button
-                        type="button"
-                        className="login-social-btn"
-                     >
-                        <svg
-                           className="login-social-icon"
-                           viewBox="0 0 24 24"
-                           aria-hidden="true"
-                        >
-                           <path
-                              fill="#4285F4"
-                              d="M21.6 12.23c0-.78-.07-1.53-.2-2.23H12v4.22h5.38a4.6 4.6 0 0 1-2 3.02v2.51h3.24c1.9-1.75 2.98-4.32 2.98-7.52Z"
-                           />
-                           <path
-                              fill="#34A853"
-                              d="M12 22c2.7 0 4.96-.9 6.62-2.44l-3.24-2.51c-.9.6-2.04.95-3.38.95-2.6 0-4.8-1.76-5.59-4.12H3.06v2.59A10 10 0 0 0 12 22Z"
-                           />
-                           <path
-                              fill="#FBBC05"
-                              d="M6.41 13.88a6 6 0 0 1 0-3.76V7.53H3.06a10 10 0 0 0 0 8.94l3.35-2.59Z"
-                           />
-                           <path
-                              fill="#EA4335"
-                              d="M12 6c1.47 0 2.8.51 3.84 1.5l2.87-2.87A9.62 9.62 0 0 0 12 2a10 10 0 0 0-8.94 5.53l3.35 2.59C7.2 7.76 9.4 6 12 6Z"
-                           />
-                        </svg>
-                        Google
-                     </button>
-
-                     <button
-                        type="button"
-                        className="login-social-btn"
-                     >
-                        <svg
-                           className="login-social-icon login-apple-icon"
-                           viewBox="0 0 24 24"
-                           aria-hidden="true"
-                        >
-                           <path
-                              fill="currentColor"
-                              d="M16.6 13.1c0-2.2 1.8-3.3 1.9-3.4-1-1.5-2.6-1.7-3.2-1.7-1.4-.1-2.6.8-3.3.8-.7 0-1.8-.8-2.9-.8-1.5 0-2.9.9-3.7 2.2-1.6 2.8-.4 6.9 1.1 9.2.8 1.1 1.7 2.4 2.9 2.3 1.1 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.3.9-1.3 1.2-2.5 1.2-2.6 0 0-2.8-1.1-2.8-3.7Zm-2.2-6.6c.6-.8 1-1.8.9-2.9-.9 0-1.9.6-2.6 1.4-.6.7-1.1 1.8-1 2.8 1 .1 2-.5 2.7-1.3Z"
-                           />
-                        </svg>
-                        Apple
-                     </button>
-                  </div>
 
                   <p className="login-register-text">
                      Don't Have An Account?

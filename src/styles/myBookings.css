@@ -102,8 +102,8 @@
    border: none;
    border-radius: 14px;
    background: linear-gradient(135deg,
-         #ef4444,
-         #dc2626);
+         #0bc065,
+         #18df54);
    color: white;
    font-weight: 600;
    transition: all 0.3s ease;
@@ -121,6 +121,29 @@
    border: 1px solid #e2e8f0;
    cursor: not-allowed;
    box-shadow: none;
+}
+
+
+.booking-actions {
+   display: flex;
+   gap: 12px;
+   margin-top: 20px;
+}
+
+.cancel-btn {
+   background: #dc3545;
+}
+
+.status-badge.completed {
+   background: #198754;
+   color: #fff;
+}
+
+.counter-message {
+   margin-top: 20px;
+   font-size: 14px;
+   color: #198754;
+   font-weight: 600;
 }
 
 @media (max-width: 768px) {

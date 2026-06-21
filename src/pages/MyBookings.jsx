@@ -58,6 +58,39 @@ function MyBookings() {
       }
    };
 
+   const checkoutBooking = async (id) => {
+      try {
+         await API.put(`/bookings/checkout/${id}`);
+
+         alert(
+            "Checkout completed. Please make payment at the parking counter."
+         );
+
+         fetchBookings();
+      } catch (error) {
+         const message =
+            error?.response?.data?.message ||
+            error?.message ||
+            "Unknown error occurred.";
+
+         alert(
+            `Unable to checkout: ${message}`
+         );
+      }
+   };
+
+   const getDuration = (start, end) => {
+      const startTime = new Date(start);
+      const endTime = new Date(end);
+
+      const hours = Math.ceil(
+         (endTime - startTime) /
+         (1000 * 60 * 60)
+      );
+
+      return hours;
+   };
+
    return (
       <div className="my-bookings-page">
 
@@ -136,7 +169,7 @@ function MyBookings() {
                               <div className="booking-info">
                                  <span>Amount</span>
                                  <strong>
-                                    ₹{booking.amount}
+                                    ₹{booking.amount} per hour
                                  </strong>
                               </div>
 
@@ -148,35 +181,79 @@ function MyBookings() {
                                        booking.bookingStatus ===
                                           "CANCELLED"
                                           ? "status-badge cancelled"
-                                          : "status-badge active"
+                                          : booking.bookingStatus ===
+                                             "COMPLETED"
+                                             ? "status-badge completed"
+                                             : "status-badge active"
                                     }
                                  >
                                     {booking.bookingStatus}
                                  </strong>
                               </div>
 
-                              <button
-                                 className={
-                                    booking.bookingStatus ===
-                                       "CANCELLED"
-                                       ? "booking-btn disabled"
-                                       : "booking-btn"
-                                 }
-                                 onClick={() =>
-                                    cancelBooking(
-                                       booking.id
-                                    )
-                                 }
-                                 disabled={
-                                    booking.bookingStatus ===
-                                    "CANCELLED"
-                                 }
-                              >
-                                 {booking.bookingStatus ===
-                                    "CANCELLED"
-                                    ? "Cancelled"
-                                    : "Cancel Booking"}
-                              </button>
+                              <div className="booking-actions">
+
+                                 {booking.bookingStatus === "ACTIVE" && (
+                                    <>
+                                       <button
+                                          className="booking-btn"
+                                          onClick={() =>
+                                             checkoutBooking(booking.id)
+                                          }
+                                       >
+                                          Checkout
+                                       </button>
+
+                                       <button
+                                          className="booking-btn cancel-btn"
+                                          onClick={() =>
+                                             cancelBooking(booking.id)
+                                          }
+                                       >
+                                          Cancel
+                                       </button>
+                                    </>
+                                 )}
+
+                                 {booking.bookingStatus === "COMPLETED" && (
+                                    <div className="booking-completed">
+                                       <p>
+                                          <strong>Checkout Time:</strong>{" "}
+                                          {new Date(
+                                             booking.endTime
+                                          ).toLocaleString()}
+                                       </p>
+
+                                       <p>
+                                          <strong>Duration:</strong>{" "}
+                                          {getDuration(
+                                             booking.startTime,
+                                             booking.endTime
+                                          )} Hours
+                                       </p>
+
+                                       <p>
+                                          <strong>Amount Payable:</strong>{" "}
+                                          ₹{booking.amount}
+                                       </p>
+
+                                       <p className="counter-message">
+                                          Please make payment at the
+                                          parking counter.
+                                       </p>
+                                    </div>
+                                 )}
+
+                                 {booking.bookingStatus === "CANCELLED" && (
+                                    <button
+                                       className="booking-btn disabled"
+                                       disabled
+                                    >
+                                       Cancelled
+                                    </button>
+                                 )}
+
+                              </div>
 
                            </div>
 

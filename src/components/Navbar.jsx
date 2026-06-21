@@ -26,17 +26,12 @@ function Navbar() {
 
          <div className="pe-navbar-container">
 
-            <Link
-               className="pe-navbar-brand"
-               to="/"
-            >
-               <span className="pe-brand-main">
-                  ParkEase
-               </span>
-
-               <span className="pe-brand-sub">
-                  Mumbai
-               </span>
+            <Link className="pe-navbar-brand" to="/">
+               <div className="pe-logo">P</div>
+               <div className="pe-brand-copy">
+                  <span className="pe-brand-main">ParkEase</span>
+                  <span className="pe-brand-sub">Mumbai</span>
+               </div>
             </Link>
 
             <div className="pe-navbar-actions">

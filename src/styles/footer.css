@@ -1,51 +1,76 @@
 .footer {
    background: #071330;
-   color: white;
-   padding: 60px 0 25px;
+   color: #e2e8f0;
+   padding: 60px 0 30px;
+   position: relative;
+   overflow: hidden;
+}
+
+.footer::before {
+   content: "";
+   position: absolute;
+   inset: 0;
+   background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.16), transparent 30%),
+      radial-gradient(circle at bottom left, rgba(96, 165, 250, 0.12), transparent 28%);
+   pointer-events: none;
+}
+
+.footer .container {
+   position: relative;
+   z-index: 1;
 }
 
 .footer-brand {
    display: flex;
    align-items: center;
    gap: 14px;
-   margin-bottom: 20px;
+   margin-bottom: 22px;
 }
 
 .footer-logo {
-   width: 42px;
-   height: 42px;
+   width: 44px;
+   height: 44px;
    border-radius: 12px;
-   background: linear-gradient(135deg,
-         #4f46e5,
-         #2563eb);
+   background: linear-gradient(135deg, #4f46e5 0%, #2563eb 100%);
+   display: grid;
+   place-items: center;
+   font-size: 1.85rem;
+   color: #ffffff;
+   font-weight: 800;
+}
+
+.footer-brand-copy {
    display: flex;
+   flex-direction: column;
    justify-content: center;
-   align-items: center;
-   font-size: 1.4rem;
-   font-weight: 700;
 }
 
 .footer h4 {
-   color: white;
+   color: #f8fafc;
    font-weight: 700;
-   margin-bottom: 0;
+   margin: 0 0 4px;
+   letter-spacing: -0.02em;
 }
 
 .footer-brand span {
+   display: block;
    font-size: 0.75rem;
-   letter-spacing: 3px;
-   color: #9ca3af;
+   letter-spacing: 0.24em;
+   color: #94a3b8;
+   text-transform: uppercase;
 }
 
 .footer-description,
 .footer p {
-   color: #d1d5db;
-   line-height: 1.8;
+   color: #cbd5e1;
+   line-height: 1.85;
+   margin-bottom: 0.9rem;
 }
 
 .footer-links {
    list-style: none;
    padding: 0;
+   margin: 0;
 }
 
 .footer-links li {
@@ -54,22 +79,40 @@
 
 .footer-links a {
    text-decoration: none;
-   color: #d1d5db;
-   transition: all 0.3s ease;
+   color: #cbd5e1;
+   font-weight: 500;
+   transition: color 0.25s ease, transform 0.25s ease;
 }
 
 .footer-links a:hover {
-   color: #60a5fa;
-   padding-left: 4px;
+   color: #7dd3fc;
+   transform: translateX(4px);
 }
 
 .footer hr {
-   border-color: rgba(255, 255, 255, 0.1);
-   margin: 35px 0 20px;
+   border: none;
+   border-top: 1px solid rgba(148, 163, 184, 0.18);
+   margin: 34px 0 22px;
 }
 
 .footer-bottom {
    text-align: center;
-   color: #9ca3af;
+   color: #94a3b8;
    font-size: 0.95rem;
+   letter-spacing: 0.02em;
+}
+
+@media (max-width: 768px) {
+   .footer {
+      padding: 48px 0 24px;
+   }
+
+   .footer-brand {
+      flex-wrap: wrap;
+      gap: 12px;
+   }
+
+   .footer h4 {
+      margin-bottom: 14px;
+   }
 }

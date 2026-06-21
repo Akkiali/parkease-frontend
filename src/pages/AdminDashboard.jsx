@@ -75,8 +75,15 @@ function AdminDashboard() {
 
             <div className="col-md-3">
                <div className="stat-card">
-                  <p>Booked Slots</p>
-                  <h3>{stats?.bookedSlots}</h3>
+                  <p>Active Bookings</p>
+                  <h3>{stats?.activeBookings}</h3>
+               </div>
+            </div>
+
+            <div className="col-md-3">
+               <div className="stat-card">
+                  <p>Completed Bookings</p>
+                  <h3>{stats?.completedBookings}</h3>
                </div>
             </div>
 
@@ -87,7 +94,7 @@ function AdminDashboard() {
                </div>
             </div>
 
-            <div className="col-md-3">
+            <div className="col-md-6 mx-auto">
                <div className="stat-card">
                   <p>Total Revenue</p>
                   <h3>₹{stats?.totalRevenue}</h3>
@@ -127,8 +134,13 @@ function AdminDashboard() {
                   </tr>
 
                   <tr>
-                     <td>Booked Slots</td>
-                     <td>{stats?.bookedSlots}</td>
+                     <td>Active Bookings</td>
+                     <td>{stats?.activeBookings}</td>
+                  </tr>
+
+                  <tr>
+                     <td>Completed Bookings</td>
+                     <td>{stats?.completedBookings}</td>
                   </tr>
 
                   <tr>
